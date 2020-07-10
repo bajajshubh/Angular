@@ -14,7 +14,7 @@
             <h3 *ngIf="dish">{{dish.name | uppercase}}</h3>
           </mat-card-title>
         </mat-card-header>
-        <img mat-card-image src={{dish.image}} alt={{dish.name}}>
+        <img mat-card-image src="{{baseURL + dish.image}}" alt={{dish.name}}>
         <mat-card-content>
           <p>{{dish.description}}</p>
         </mat-card-content>
@@ -60,6 +60,7 @@
           {{ formErrors.author }}
         </mat-error>
       </mat-form-field>
+      <mat-slider thumbLabel tickInterval="1" style="width:50%;" min="1" max="5" step="1" value="1"></mat-slider>
       <mat-form-field>
         <textarea matInput formControlName="comment" placeholder="Your Comment" rows="12">
         </textarea>
