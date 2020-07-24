@@ -78,7 +78,23 @@
         <textarea matInput formControlName="message" placeholder="Your Feedback" rows=12></textarea>
       </mat-form-field>
     </p>
-    <button type="submit" mat-button class="background-primary text-floral-white">Submit</button>
+    <button type="submit" md-button class="background-primary text-floral-white"
+    [disabled]="feedbackForm.invalid">Submit</button>
   </form>
-</div>
-</div>
+  </div>
+  <div [@hide]="visibilitySpinner">
+  <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
+  </div>
+  <div class="flex" *ngIf="feedback" [@expand]>
+  <h3>Your submission</h3>
+  <p>First Name: {{feedback.firstname}}</p>
+  <p>Last Name: {{feedback.lastname}}</p>
+  <p>Tel. number: {{feedback.telnum}}</p>
+  <p>Email: {{feedback.email}}</p>
+  <p>Contact You?: {{feedback.agree}}</p>
+  <p>How?: {{feedback.contacttype}}</p>
+  <p>How?: {{feedback.message}}</p>
+  </div>
+
+
+  </div>
